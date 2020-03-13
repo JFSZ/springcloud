@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: service-hi
+server:
+  port: 7003
+eureka:
+  instance:
+    hostname: service-hi
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://server1:7000/eureka/,http://server2:7001/eureka/,http://server3:7002/eureka/

@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: server-ribbon
+server:
+  port: 7003
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7000/eureka/
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000

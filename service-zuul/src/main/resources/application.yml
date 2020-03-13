@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: service-zuul
+server:
+  port: 7005
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7000/eureka/
+zuul:
+  host:
+    connect-timeout-millis: 60000
+  routes:
+    server-ribbon:
+      # ? 单个字符 * 任意多个字符，不包含多级路径  ** 任意多个字符，包含多级路径
+      path: /api-a/**
+      serviceId: server-ribbon  # 用于配置符合path的请求路径路由到的服务名称。
+    service-feign:
+      path: /api-b/**
+      serviceId: service-feign
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
